@@ -3,16 +3,24 @@
         <script src="https://unpkg.com/react@16.0.0-rc.2/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@16.0.0-rc.2/umd/react-dom.development.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+        <link href="./component.css" rel="stylesheet"/>
     </head>
     <body>
         <div id="app"></div>
         <script type="text/babel">
         class Pet extends React.Component{
             render(){
+                const liStyle={'fontSize':'1.5em'};
                 return (
-                    <div>
-                        <h2>Himanshu</h2>
+                    <div className='card'>
+                        <h2 className='name'>Himanshu</h2>
                         <img src="https://raw.githubusercontent.com/tigarcia/moxie/master/moxie.png" alt="this is cat"/>
+                        <h5 style={{'fontSize':'2em'}}>Hoobbies:</h5>
+                        {5+5}
+                        <ul style={liStyle}>
+                            <li>sleep</li>
+                            <li>eat</li>
+                        </ul>
                     </div>
                 )
             }
