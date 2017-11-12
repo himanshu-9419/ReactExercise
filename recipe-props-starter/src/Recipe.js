@@ -2,6 +2,12 @@ import React, {Component} from 'react'
 import './Recipe.css'
 
 class Reciepe extends Component{
+    static propTypes={
+        title:PropTypes.string.isRequired,
+        img:PropTypes.string.isRequired,
+        instructions:PropTypes.string.isRequired,
+        ingredients:PropTypes.arrayof(PropTypes.string).isRequired
+    }
     render(){
         const { title, img, instructions } = this.props;
         const ingredients=this.props.ingredients.map((ing,index)=>(<li key={index} >{ing}</li>));
