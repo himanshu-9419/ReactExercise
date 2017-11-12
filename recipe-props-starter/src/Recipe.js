@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './Reciepe.css'
+import './Recipe.css'
 
 class Reciepe extends Component{
     render(){
