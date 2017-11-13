@@ -24,11 +24,21 @@ class App extends Component {
     //Math.floor(Math.random()*4)
     setTimeout(
       ()=>{
-        var elemi = Math.floor(Math.random() * 4); var hobbie = Math.floor(Math.random() * 2);
-        this.setState({instructors:this.state.instructors.map((elem,i)=>{
-          if(i !== elemi) { return {name:elem.name,hobbies:elem.hobbies}}
-          else { return { name: elem.name, hobbies: [elem.hobbies[hobbie]]}}
-        })})
+        var elemi = Math.floor(Math.random() * this.state.instructors.length); var hobbie = Math.floor(Math.random() *this.state.instructors[elemi].hobbies.length );
+        
+        //my solution
+        // this.setState({instructors:this.state.instructors.map((elem,i)=>{
+        //   if(i !== elemi) { return {name:elem.name,hobbies:elem.hobbies}}
+        //   else { return { name: elem.name, hobbies: [elem.hobbies[hobbie]]}}
+        // })})
+        //as js always do shallow copy we will copy and then modify
+
+        //teacher solution
+        const instructors=this.state.instructors.slice();
+        instructors[elemi]=Object.assign({},this.state.instructors[elemi]);
+        instructors[elemi].hobbies=Object.assign({},this.state.instructors[elemi].hobbies.slice());
+        instructors[elemi].hobbies.splice(hobbie,1);
+        this.setState({instructors})
       }
         ,3000
     );
