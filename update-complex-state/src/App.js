@@ -36,7 +36,7 @@ class App extends Component {
         //teacher solution
         const instructors=this.state.instructors.slice();
         instructors[elemi]=Object.assign({},this.state.instructors[elemi]);
-        instructors[elemi].hobbies=Object.assign({},this.state.instructors[elemi].hobbies.slice());
+        instructors[elemi].hobbies=instructors[elemi].hobbies.slice();
         instructors[elemi].hobbies.splice(hobbie,1);
         this.setState({instructors})
       }
